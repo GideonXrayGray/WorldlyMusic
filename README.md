@@ -14,7 +14,3 @@ Had to remove both chinese traslation as the dict is not behaving properly with 
 
 
 **Todo:** 
-
-Convert to Fuctions
-
-Add User input line - added in 0.1.1
