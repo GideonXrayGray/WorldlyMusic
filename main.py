@@ -2,19 +2,83 @@ import sys
 from googletrans import Translator
 import random
 
-statement =input("Enter text to translate: ")
-translate = Translator()
-langlist = ("af","sq","ar","be","bg","ca","zh-CN","zh-TW","hr","cs","da","nl","en","eo","et","tl","fi","fr","gl","de","el","iw","hi","hu","is","id","ga","it","ja","ko","la","lv","lt","mk","ms","mt","no","fa","pl","pt","ro","ru","sr","sk","sl","es","sw","sv","th","tr","uk","vi","cy","yi")
-rlang = []
-print("Original Statment: " + statement)
+# statement =" I am a man of my word"
 
-while len(rlang) < 3:
-    choice = random.choice(langlist)
-    rlang.append(choice)
+langlist = ("af","sq","ar","be","bg","ca","hr","cs","da","nl","en","eo","et","tl","fi","fr","gl","de","el","iw","hi","hu","is","id","ga","it","ja","ko","la","lv","lt","mk","ms","mt","no","fa","pl","pt","ro","ru","sr","sk","sl","es","sw","sv","th","tr","uk","vi","cy","yi")
+# print("Original Statment: " + statement)
 
-for key in rlang:
-    tstatment = translate.translate(dest=key, text=statement)
-    statement = tstatment.text
+LANGUAGES = {
+    'af': 'afrikaans',
+    'sq': 'albanian',
+    'ar': 'arabic',
+    'be': 'belarusian',
+    'bg': 'bulgarian',
+    'ca': 'catalan',
+    'zh-CN': 'chinese_simplified',
+    'zh-TW': 'chinese_traditional',
+    'hr': 'croatian',
+    'cs': 'czech',
+    'da': 'danish',
+    'nl': 'dutch',
+    'en': 'english',
+    'eo': 'esperanto',
+    'et': 'estonian',
+    'tl': 'filipino',
+    'fi': 'finnish',
+    'fr': 'french',
+    'gl': 'galician',
+    'de': 'german',
+    'el': 'greek',
+    'iw': 'hebrew',
+    'hi': 'hindi',
+    'hu': 'hungarian',
+    'is': 'icelandic',
+    'id': 'indonesian',
+    'ga': 'irish',
+    'it': 'italian',
+    'ja': 'japanese',
+    'ko': 'korean',
+    'la': 'latin',
+    'lv': 'latvian',
+    'lt': 'lithuanian',
+    'mk': 'macedonian',
+    'ms': 'malay',
+    'mt': 'maltese',
+    'no': 'norwegian',
+    'fa': 'persian',
+    'pl': 'polish',
+    'pt': 'portuguese',
+    'ro': 'romanian',
+    'ru': 'russian',
+    'sr': 'serbian',
+    'sk': 'slovak',
+    'sl': 'slovenian',
+    'es': 'spanish',
+    'sw': 'swahili',
+    'sv': 'swedish',
+    'th': 'thai',
+    'tr': 'turkish',
+    'uk': 'ukrainian',
+    'vi': 'vietnamese',
+    'cy': 'welsh',
+    'yi': 'yiddish',
+  }
 
-print("Results: " + translate.translate(statement).text)
-print(rlang)
+def langaugeGen(number):
+    rlang = []
+    while len(rlang) < number:
+        choice = random.choice(langlist)
+        rlang.append(choice)
+    return rlang
+
+def translaterMessage(statement="Hello World",numoflang=3):
+    translate = Translator()
+    print("Original: " + statement)
+    for key in langaugeGen(numoflang):
+        tstatment = translate.translate(dest=key, text=statement)
+        print(LANGUAGES[tstatment.src] + "-->" + LANGUAGES[tstatment.dest])
+        statement = tstatment.text
+    print("Results: " + translate.translate(statement).text)
+
+
+translaterMessage(input("Input a statement: "),int(input("Enter the number of translations: ")))
