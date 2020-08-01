@@ -8,21 +8,13 @@ langlist = ("af","sq","ar","be","bg","ca","zh-CN","zh-TW","hr","cs","da","nl","e
 rlang = []
 print("Original Statment: " + statement)
 
-
 while len(rlang) < 3:
     choice = random.choice(langlist)
     rlang.append(choice)
+
 for key in rlang:
     tstatment = translate.translate(dest=key, text=statement)
     statement = tstatment.text
 
 print(translate.translate(statement).text)
-
-
-
-
-
-
-
-
 print(rlang)
