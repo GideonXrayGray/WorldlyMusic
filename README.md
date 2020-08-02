@@ -7,7 +7,9 @@
 **version 0.2**
 
 Added the ability to enter in your own text
+
 Added The number of translations loops
+
 Added Translation Paths
 
 Had to remove both chinese traslation as the dict is not behaving properly with the dashes.

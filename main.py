@@ -69,9 +69,7 @@ def langaugeGen(number):
         rlang.append(choice)
     return rlang
 
-def translaterMessage(statement="Hello World",numoflang=3):
-    if statement == "" or numoflang == "":
-        exit()
+def translaterMessage(statement,numoflang):
     translate = Translator()
     print("Original: " + statement)
     for key in langaugeGen(numoflang):
