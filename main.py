@@ -2,8 +2,6 @@ import sys
 from googletrans import Translator
 import random
 
-# statement =" I am a man of my word"
-
 langlist = ("af","sq","ar","be","bg","ca","hr","cs","da","nl","en","eo","et","tl","fi","fr","gl","de","el","iw","hi","hu","is","id","ga","it","ja","ko","la","lv","lt","mk","ms","mt","no","fa","pl","pt","ro","ru","sr","sk","sl","es","sw","sv","th","tr","uk","vi","cy","yi")
 # print("Original Statment: " + statement)
 
