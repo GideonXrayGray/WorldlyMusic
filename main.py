@@ -70,6 +70,8 @@ def langaugeGen(number):
     return rlang
 
 def translaterMessage(statement="Hello World",numoflang=3):
+    if statement == "" or numoflang == "":
+        exit()
     translate = Translator()
     print("Original: " + statement)
     for key in langaugeGen(numoflang):
@@ -77,6 +79,9 @@ def translaterMessage(statement="Hello World",numoflang=3):
         print(LANGUAGES[tstatment.src] + "-->" + LANGUAGES[tstatment.dest])
         statement = tstatment.text
     print("Results: " + translate.translate(statement).text)
+    start()
 
+def start():
+    translaterMessage(input("Input a statement or lyric: "),int(input("Enter the number of translation loops: ")))
 
-translaterMessage(input("Input a statement: "),int(input("Enter the number of translations: ")))
+start()
