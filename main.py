@@ -72,9 +72,10 @@ def langaugeGen(number):
 def translaterMessage(statement,numoflang):
     translate = Translator()
     print("Original: " + statement)
+
     for key in langaugeGen(numoflang):
         tstatment = translate.translate(dest=key, text=statement)
-        print(LANGUAGES[tstatment.src] + "-->" + LANGUAGES[tstatment.dest])
+        print(f"{LANGUAGES[tstatment.src]:<10} ---> {LANGUAGES[tstatment.dest]:<20}  {translate.translate(tstatment.text).text}")
         statement = tstatment.text
     print("Results: " + translate.translate(statement).text)
     start()
