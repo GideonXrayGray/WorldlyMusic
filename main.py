@@ -1,3 +1,4 @@
+#translation project
 import sys
 from googletrans import Translator
 import random
