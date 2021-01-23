@@ -5,6 +5,7 @@
 
 
  **Version 0.3**
+    
  Fix an issue where script would crash on google translate service hang up, and contiue the script.
  
 **Version 0.2.1**
