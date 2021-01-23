@@ -5,3 +5,5 @@
 .idea/WorldlyMusic.iml
 .vscode
 .idea
+.github/workflows/codeql-analysis.yml
+.gitattributes

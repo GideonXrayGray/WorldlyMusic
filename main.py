@@ -2,8 +2,6 @@ import sys
 from googletrans import Translator
 import random
 
-langlist = ("af","sq","ar","be","bg","ca","hr","cs","da","nl","en","eo","et","tl","fi","fr","gl","de","el","iw","hi","hu","is","id","ga","it","ja","ko","la","lv","lt","mk","ms","mt","no","fa","pl","pt","ro","ru","sr","sk","sl","es","sw","sv","th","tr","uk","vi","cy","yi")
-# print("Original Statment: " + statement)
 
 LANGUAGES = {
     'af': 'afrikaans',
@@ -62,24 +60,26 @@ LANGUAGES = {
     'yi': 'yiddish',
   }
 
-def langaugeGen(number):
-    rlang = []
-    while len(rlang) < number:
-        choice = random.choice(langlist)
-        rlang.append(choice)
-    return rlang
+def langaugeGen():
+    lang_list = list(LANGUAGES.keys())
+    return random.choice(lang_list)
 
 def translaterMessage(statement,numoflang):
     translate = Translator()
     original = statement
+    count = 0
 
-    #Loops though ever lang in langaugeGen, translates, and prints result
-    for key in langaugeGen(numoflang):
-        tstatment = translate.translate(dest=key, text=statement)
-        print(f"{LANGUAGES[tstatment.src]:<10} ---> {LANGUAGES[tstatment.dest]:<20}  {translate.translate(tstatment.text).text}")
-        statement = tstatment.text
+    while count != numoflang:
+        try:
+            tstatment = translate.translate(dest=langaugeGen(), text=statement)
+            print(f"{LANGUAGES[tstatment.src]:<10} ---> {LANGUAGES[tstatment.dest]:<20}  {translate.translate(tstatment.text).text:<60} {tstatment.text}")
+            statement = tstatment.text
+            count = count + 1
+        except:
+            print("")
+       
     print(f"\r\nOriginal: {original:<20}")
-    print(f" {translate.translate(statement).text}")
+    print(f"Translated: {translate.translate(statement).text}")
     start()
 
 def start():
